@@ -1,34 +1,26 @@
-# ============================================
-# Amazon ML Challenge - Entity Resolution
-# Base dependencies (works on both CPU & GPU)
-# ============================================
-
-# --- Data handling ---
+# Core data processing
 pandas>=2.0.0
-numpy>=1.24.0
+numpy>=1.26.0
 
-# --- ML models ---
-scikit-learn>=1.3.0
+# String similarity (fast C-backed Levenshtein, Jaro-Winkler, etc.)
+rapidfuzz>=3.6.0
+
+# Phonetic algorithms (Soundex, Metaphone)
+metaphone>=0.6
+
+# ML model
+lightgbm>=4.3.0
 xgboost>=2.0.0
-lightgbm>=4.0.0
+scikit-learn>=1.4.0
 
-# --- String similarity & phonetics ---
-rapidfuzz>=3.0.0        # fast Levenshtein, Jaro-Winkler, token_set_ratio etc.
-jellyfish>=1.0.0        # Soundex, Metaphone, Double Metaphone
+# TF-IDF + approximate nearest neighbors for blocking
+sparse_dot_topn>=1.1.0       # fast sparse matrix top-N for TF-IDF ANN
 
-# --- Progress bars ---
-tqdm>=4.65.0
+# Progress bars
+tqdm>=4.66.0
 
-# --- EDA & visualization ---
-matplotlib>=3.7.0
-seaborn>=0.12.0
+# Serialization / caching
+joblib>=1.3.0
 
-# --- Embeddings (sentence-transformers) ---
-# torch is installed separately (CPU vs GPU - see README)
-sentence-transformers>=2.2.0
-
-# ============================================
-# NOTE: PyTorch is NOT listed here.
-# Install it separately based on your hardware.
-# See README.md for exact commands.
-# ============================================
+# Parquet support (required for pandas .to_parquet / .read_parquet)
+pyarrow>=14.0.0
